@@ -24,12 +24,11 @@ import com.google.api.client.util.Preconditions;
 import com.google.api.client.util.store.DataStoreFactory;
 import com.google.api.services.plus.PlusScopes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Collections;
 import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
 
 class Utils {
 
@@ -54,7 +53,7 @@ class Utils {
       Preconditions.checkArgument(!clientSecrets.getDetails().getClientId().startsWith("Enter ")
           && !clientSecrets.getDetails().getClientSecret().startsWith("Enter "),
           "Download client_secrets.json file from https://code.google.com/apis/console/?api=plus "
-          + "into plus-appengine-sample/src/main/resources/client_secrets.json");
+          + "into GplusBusinessContact/src/main/resources/client_secrets.json");
     }
     return clientSecrets;
   }

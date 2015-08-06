@@ -33,7 +33,7 @@ package com.boivin;
  * limitations under the License.
  */
 
-import com.boivin.model.People;
+import com.boivin.model.PeopleFeedBean;
 import com.googlecode.objectify.ObjectifyService;
 
 import javax.servlet.ServletContextEvent;
@@ -47,7 +47,7 @@ public class OfyHelper implements ServletContextListener {
     public void contextInitialized(ServletContextEvent event) {
         // This will be invoked as part of a warmup request, or the first user
         // request if no warmup request was invoked.
-        ObjectifyService.register(People.class);
+        ObjectifyService.register(PeopleFeedBean.class);
     }
 
     public void contextDestroyed(ServletContextEvent event) {

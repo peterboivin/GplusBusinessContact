@@ -23,13 +23,12 @@ import com.google.api.services.plus.PlusRequestInitializer;
 import com.google.api.services.plus.model.Activity;
 import com.google.api.services.plus.model.ActivityFeed;
 
-import java.io.IOException;
-import java.io.Writer;
-import java.util.List;
-
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.List;
 
 /**
  * Sample Google+ servlet that performs a simple, unauthenticated search on public activities.
@@ -41,7 +40,7 @@ public class PlusBasicServlet extends HttpServlet {
   /**
    * Enter your API key here from https://code.google.com/apis/console/?api=plus under "API Access".
    */
-  private static final String API_KEY = "";
+  private static final String API_KEY = "AIzaSyB74hrSxH5zKE45MY2QtRt0ApNsrTYcOCo";
 
   private static final long serialVersionUID = 1;
 
@@ -53,7 +52,7 @@ public class PlusBasicServlet extends HttpServlet {
     Plus plus = new Plus.Builder(httpTransport, jsonFactory, null).setApplicationName("")
         .setGoogleClientRequestInitializer(new PlusRequestInitializer(API_KEY)).build();
 
-    ActivityFeed myActivityFeed = plus.activities().search("Google").execute();
+    ActivityFeed myActivityFeed = plus.activities().search("me").execute();
     List<Activity> myActivities = myActivityFeed.getItems();
 
     resp.setContentType("text/html");
